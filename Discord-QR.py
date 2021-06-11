@@ -2,6 +2,7 @@ from PIL import Image, ImageDraw, ImageFilter
 from bs4 import BeautifulSoup
 from selenium import webdriver
 import base64
+import pyfiglet
 import time
 import requests
 import os
@@ -10,6 +11,7 @@ from discord import Webhook, RequestsWebhookAdapter
 from urllib.request import Request, urlopen
 from json import loads, dumps
 web_hook_url = r""
+print(pyfiglet.figlet_format("moom825"))
 token = ""
 WINDOW_SIZE = "0,0"
 options = webdriver.ChromeOptions()
