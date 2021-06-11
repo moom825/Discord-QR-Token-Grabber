@@ -1,0 +1,6 @@
+discord.py
+requests
+selenium
+beautifulsoup4
+discord
+Pillow
