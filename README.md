@@ -8,7 +8,7 @@ A Python script that automatically generates a fake Discord Nitro QR code that t
 This tool is for educational use only, the author will not be held responsible for any misuse of this tool.
 
 ## **Setup Guide:**
-You will first need to make a discord Webhook(https://www.youtube.com/watch?v=fKksxz2Gdnc) and paste your webhook in line 12
+You will first need to make a discord Webhook(https://www.youtube.com/watch?v=fKksxz2Gdnc) and paste your webhook in line 13
 
 Install requirements :
 ```
