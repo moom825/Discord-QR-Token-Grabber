@@ -25,7 +25,7 @@ print("setting up the QR code")
 time.sleep(2)
 page_source = driver.page_source
 soup = BeautifulSoup(page_source, features='lxml')
-classe = soup.find('div', {'class': 'qrCode-wG6ZgU'})
+classe = soup.find('div', {'class': 'qrCode-2R7t9S'})
 qrcode = classe.find('img')['src']
 imgbase64 = base64.b64decode(qrcode.replace('data:image/png;base64,', ''))
 with open('temp23.png','wb') as f:
